@@ -1,2 +1,6 @@
 ﻿  main.c
-  bank_system.vcxproj -> C:\Users\user\Desktop\C_programming\bank_system\x64\Debug\bank_system.exe
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(43,2): warning C4013: 'system' undefined; assuming extern returning int
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(75,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(77,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(108,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  bank_system.vcxproj -> C:\Users\user\Desktop\mygit\bank_system\x64\Debug\bank_system.exe
