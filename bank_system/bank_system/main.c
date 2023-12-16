@@ -6,24 +6,28 @@ Creator		: Jinkee.Hong
 First wrote : 2023/12/15 
 */
 
+
 //MACROS 
+#define DEFAULT_INT -9999
+#define DEFAULT_CHAR 'ERROR'
 #define STAR_NUM 80
 #define OPTION_NUM 4
 #define OPTION_WIDTH 10
-#define WAIT_TIME 60
+#define WAIT_TIME 30
 #define START_COMMENT "HELLO, WELCOME TO BANKING SERVICE."
 #define GUIDE_COMMENT "- PLEASE SELECT THE OPTION -"
-
+ 
 //FUNCTIONS
 void Deposit_Money();
-
-void prt_seperator_chars(int width, char c ,int bool_num);
+int Check_IntType(int int_check);
+char* Check_Str(char* str_check);
+void prt_seperator_chars(int width, char c, int bool_num);
 void Show_Options();
-void Disp_Middle( char str[]);
+void Disp_Middle(char str[]);
 void Select_Opt();
 
 //GLOBAL 
-int Balance;
+int Balance = 0;
 
 int main()
 {
@@ -39,11 +43,12 @@ int main()
 
 void Deposit_Money( )
 {
-	int added_money = 0;
+	int added_money = DEFAULT_INT;
 	system("cls");// ERASE SCREEN
 	printf("PLEASE PUT MONEY INTO REGISTER : ");
-	scanf("%d", &added_money);//make an exception
-	
+	scanf("%d", &added_money);
+ 
+	added_money = Check_IntType(added_money);
 	
 	//progress bar
 	for (int i = 1; i <= WAIT_TIME; i++)
@@ -73,20 +78,78 @@ void Deposit_Money( )
 	Balance += added_money;
 
 
+	prt_seperator_chars(strlen("ADDED AMOUNT OF MONEY : %d \n"), '*', 1);
+	printf("ADDED AMOUNT OF MONEY : %d$\n", Balance);
 	prt_seperator_chars(strlen("ADDED AMOUNT OF MONEY : %d\n"), '*', 1);
-	printf("ADDED AMOUNT OF MONEY : %d\n", Balance);
-	prt_seperator_chars(strlen("ADDED AMOUNT OF MONEY : %d\n"), '*', 1);
-	printf("TRANSFACTION HAS BEEN COMPLETED!\n");
+	printf("TRANSACTION HAS BEEN COMPLETED!\n");
 
 }
+
+
+//exception handling for str & fix  
+char* Check_Str(char* check)
+{
+	int str_counter = 0;
+	int int_counter = 0;
+	
+	for (int i = 0; i < sizeof(check); i++)
+	{
+		str_counter++;
+	}
+
+	for (int i = 0; i < str_counter; i++)
+	{	
+		if ((*(check+i) < 97 || *(check + i) > 122) || (*(check + i) >=65|| *(check + i) <= 90)) // FIND OUT LETTERS ARE AVAIL ERROR
+		{
+
+		}
+		else
+		{
+			printf("PLEASE MAKE YOUR INPUT AGAIN\n\a");
+			printf("%s", check);
+		}
+	}
+
+	return check;
+}
+
+//exception handling for integer  & fix  
+int Check_IntType(int check)
+{
+	while(1)
+	{
+		if (check < 0) //if unexpected input comes, scanf will not assign any value.
+		{
+			prt_seperator_chars(strlen("¡äPLEASE MAKE YOUR INPUT CORRECTLY\a\n"), '*', 1);
+			printf("¡äPLEASE MAKE YOUR INPUT CORRECTLY\a\n");
+			prt_seperator_chars(strlen("¡äPLEASE MAKE YOUR INPUT CORRECTLY\a\n"), '*', 1);
+
+			while (getchar() != '\n') //ERASE REMAINING BUFFER FOR A NEW INPUT
+			{
+				continue;
+			}
+			printf("PLEASE PUT MONEY INTO REGISTER : ");
+			scanf("%d", &check);
+		}
+		else
+		{
+			break;
+		}
+		 
+	}
+	return check;
+}
+
+
+
+
 
 void Select_Opt()
 {
 	int select_num = 0;
 	printf("\n¢º CHOOSE THE NUMBER OPTION PLEASE : ");
 	scanf("%d", &select_num);
-	 
-	 
+	select_num = Check_Str(select_num);
 	switch (select_num)
 	{
 		case 1:
@@ -102,8 +165,6 @@ void Select_Opt()
 	}
 	 
 }
-
-
 void Disp_Middle( char str[] )
 {
 	int n_blank = ((STAR_NUM - strlen(str)) / 2);
@@ -122,7 +183,6 @@ void prt_seperator_chars(int width, char c, int bool_num)
 	}
 	
 }
-
 void Show_Options()
 {
 	printf("1. DEPOSIT MONEY");
@@ -140,4 +200,5 @@ void Show_Options()
 	{
 		Select_Opt();
 	}
+	 
 }

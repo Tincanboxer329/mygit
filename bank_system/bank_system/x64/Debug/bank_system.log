@@ -1,6 +1,11 @@
 ﻿  main.c
-C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(43,2): warning C4013: 'system' undefined; assuming extern returning int
-C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(75,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(77,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(108,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(47,2): warning C4013: 'system' undefined; assuming extern returning int
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(81,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(83,22): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(123,24): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(125,24): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(152,35): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(152,25): warning C4024: 'Check_Str': different types for formal and actual parameter 1
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(152,36): warning C4047: '=': 'int' differs in levels of indirection from 'char *'
+C:\Users\user\Desktop\mygit\bank_system\bank_system\main.c(170,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   bank_system.vcxproj -> C:\Users\user\Desktop\mygit\bank_system\x64\Debug\bank_system.exe
